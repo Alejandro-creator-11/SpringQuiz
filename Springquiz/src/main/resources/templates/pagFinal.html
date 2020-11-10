@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="/static/css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="/static/css/bootstrap-theme.css">
+	<meta charset="ISO-8859-1">
+	<title>Insert title here</title>
+</head>
+<body>
+	<div class="jumbotron" align="center">
+		<form th:action="@{/pag4}" method="post">
+			<div th:switch="${general_form}">
+				<div th:case="1">
+					<img th:src="@{/images/homer.png}"/>
+					<b><p th:text="Homer"/></b>
+					<p>
+					Para ti no hay plan mejor que comer y tumbarte en <br>
+					el sofa a ver la tele.Puedes parecer un pasota cascarrabias <br> 
+					que se enfada por todo, pero en el fondo tienes un gran corazon. <br>
+				</div>
+				<div th:case="2">
+					<img th:src="@{/images/bart.png}"/>
+					<b><p th:text="Bart"/></b>
+					<p>
+					Eres una persona traviesa y con ganas de desobedecer.<br>
+					Te gusta cualquier cosa que no tenga que ver con el colegio y prefieres<br> 
+					jugar con tus amigos y ver la tele antes que ponerte a ordenar tu cuarto.<br>
+					</p>
+				</div>
+				<div th:case="3">
+					<img th:src="@{/images/marge.png}"/>
+					<b><p th:text="Marge"/> </b>
+					<p>
+					Te pasas el día riñendo, pero siempre con buena intención. <br>
+					Te encanta tenerlo todo ordenado y bajo control. Para ti, <br>
+					lo mejor es pasar pasar tiempo en familia y disfrutar con ellos. <br>
+				</div>
+				<div th:case="4">
+					<img th:src="@{/images/lisa.png}"/>
+					<b><p th:text="Lisa"/></b>
+					<p>
+					Eres una persona inteligente y empática, que lucha por <br>
+					las minorías y las causas perdidas. ¡Te encanta leer y <br>
+					siempre intentas salirte de lo convencional, descubriendo cosas nuevas!<br>
+					</p>
+				</div>
+			</div>
+			<hr>
+			<div>
+				<table class="table">
+				<thead>
+					<tr>
+						<th scope="col">Nombre</th>
+						<th scope="col">puntos</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="puntos: ${puntos}">
+						<td th:text="${puntos.nombre}" />
+						<td th:text="${puntos.puntuacion}" />
+					</tr>
+				</tbody>
+			</div>
+		</form>
+			
+		<div>
+			<form th:action="@{/destroy}" method="post">
+			<input type="submit" value="Volver a inicio" />
+			</form>
+		</div>
+	</div>
+	
+	<script src="/static/js/bootstrap.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+</body>
+</html>
